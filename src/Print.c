@@ -7,11 +7,15 @@
 
 #include "Print.h"
 #include "Display.h"
+#include "hsl2rgb.h"
 
 volatile uint8_t	print_CharacterBlueVal	=	100	;
 volatile uint8_t	print_CharacterGreenVal	=	200	;
 volatile uint8_t	print_CharacterRedVal	=	0	;
 volatile uint8_t	print_CharacterChangeCounter = 0;
+volatile uint16_t	print_ColorH			= 0;
+volatile uint8_t	print_ColorS			= 255;
+volatile uint8_t	print_ColorL			= 127;
 volatile uint8_t	printPos;
 
 uint8_t				print_textBuffer[TEXTLENGTH];
@@ -25,11 +29,22 @@ void print_Setup( void )
 
 void print_ChangeColor( void )
 {
-	print_CharacterBlueVal += 27;
+	print_ColorH += 320;
+	print_ColorH %= 768;
+	uint8_t rgb_ar[3];
+	hsl2rgb( print_ColorH, print_ColorS, print_ColorL, rgb_ar );
 
+	print_CharacterRedVal = rgb_ar[0];
+	print_CharacterGreenVal = rgb_ar[1];
+	print_CharacterBlueVal = rgb_ar[2];
+
+
+	/*
+
+	print_CharacterBlueVal += 80;
 	print_CharacterGreenVal += 70;
-
 	print_CharacterRedVal += 21;
+	*/
 }
 
 

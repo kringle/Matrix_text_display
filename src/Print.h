@@ -49,9 +49,11 @@ extern const char CharacterOmega[] PROGMEM;
 void print_ChangeColor( void );
 void	print_Setup					( void );
 void	print_emptyBuffer			( void );
+void	print_ChangeColor			( void );
 void	print_OutputBuffer			( uint8_t startPos );
 void	print_Character				( uint8_t startPos, uint8_t List[] );
 void	print_CharInputCharacter	( uint8_t startPos , char c );
+
 
 
 
