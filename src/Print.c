@@ -68,12 +68,12 @@ void print_OutputBuffer( uint8_t startPos )
 	}
 
 	// Change color every round
-	++print_CharacterChangeCounter;
 	if( print_CharacterChangeCounter >= 15 )
 	{
 		print_CharacterChangeCounter = 0;
 		print_ChangeColor();
 	}
+	++print_CharacterChangeCounter;
 
 }
 
