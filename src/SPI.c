@@ -69,6 +69,7 @@ ISR ( SPIC_INT_vect )
 	{
 		case ( 0 ):
 			first12Bits = pgm_read_word(  & (  BrightnessLookUpTable[  DisplayData[row][_12bytesSent]  ]  )  );
+			
 			c = ( uint8_t ) (first12Bits >> 4);
 			
 			break;

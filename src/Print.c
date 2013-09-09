@@ -8,7 +8,7 @@
 #include "Print.h"
 #include "Display.h"
 
-volatile uint8_t	print_CharacterBlueVal	=	0	;
+volatile uint8_t	print_CharacterBlueVal	=	100	;
 volatile uint8_t	print_CharacterGreenVal	=	200	;
 volatile uint8_t	print_CharacterRedVal	=	0	;
 volatile uint8_t	print_CharacterChangeCounter = 0;
@@ -25,14 +25,11 @@ void print_Setup( void )
 
 void print_ChangeColor( void )
 {
-	print_CharacterBlueVal += 80;
-	print_CharacterBlueVal %= 255;
+	print_CharacterBlueVal += 27;
 
-	print_CharacterGreenVal += 80;
-	print_CharacterGreenVal %= 255;
+	print_CharacterGreenVal += 70;
 
-	print_CharacterRedVal += 80;
-	print_CharacterRedVal %= 255;
+	print_CharacterRedVal += 21;
 }
 
 
@@ -68,7 +65,7 @@ void print_OutputBuffer( uint8_t startPos )
 	}
 
 	// Change color every round
-	if( print_CharacterChangeCounter >= 15 )
+	if( print_CharacterChangeCounter >= 17 )
 	{
 		print_CharacterChangeCounter = 0;
 		print_ChangeColor();
