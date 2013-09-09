@@ -7,6 +7,7 @@
 
 #include "Print.h"
 #include "Display.h"
+#include "hsl2rgb.h"
 
 volatile uint8_t	print_CharacterBlueVal	=	0	;
 volatile uint8_t	print_CharacterGreenVal	=	200	;
